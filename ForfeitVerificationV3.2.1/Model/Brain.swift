@@ -24,4 +24,22 @@ struct Brain {
         return dateTimeString
     }
     
+    func getEmptyItem() -> Item {
+        var item = Item()
+        item.approved = false
+//        item.deadline = "2021, MMM d, yyyy, h:mm a"
+        item.denied = false
+        item.description = "Loading..."
+        item.id = "loading..."
+        item.image = ""
+        item.sentForConfirmation = false
+//        item.timeSubmitted = ""
+        item.type = "photo"
+        item.amount = -1
+        item.userId = "loading..."
+        item.timelapseData = ""
+        item.paid = false
+        return item
+    }
+    
 }
