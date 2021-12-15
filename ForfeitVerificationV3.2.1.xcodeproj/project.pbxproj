@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		295E1E0E25A2B34400EF3CC1 /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E1E0D25A2B34400EF3CC1 /* Brain.swift */; };
+		29E822752769B2C800D46909 /* StatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E822742769B2C800D46909 /* StatsController.swift */; };
+		29EBB4A126AB9AD400A298EE /* UninstalledItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EBB4A026AB9AD400A298EE /* UninstalledItemController.swift */; };
 		29ED2F9E25275C820073B760 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ED2F9D25275C820073B760 /* AppDelegate.swift */; };
 		29ED2FA025275C820073B760 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ED2F9F25275C820073B760 /* SceneDelegate.swift */; };
 		29ED2FA225275C820073B760 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ED2FA125275C820073B760 /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		295E1E0D25A2B34400EF3CC1 /* Brain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brain.swift; sourceTree = "<group>"; };
+		29E822742769B2C800D46909 /* StatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsController.swift; sourceTree = "<group>"; };
+		29EBB4A026AB9AD400A298EE /* UninstalledItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstalledItemController.swift; sourceTree = "<group>"; };
 		29ED2F9A25275C820073B760 /* ForfeitVerificationV3.2.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForfeitVerificationV3.2.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29ED2F9D25275C820073B760 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29ED2F9F25275C820073B760 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +54,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		295E1E1025A2B34A00EF3CC1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				295E1E0D25A2B34400EF3CC1 /* Brain.swift */,
+				29ED2FB5252779AE0073B760 /* Item.swift */,
+				29ED2FB725278D110073B760 /* Extensions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		295E1E1125A2B34F00EF3CC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				29ED2FA325275C820073B760 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		295E1E1225A2B35B00EF3CC1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				29ED2FA125275C820073B760 /* ViewController.swift */,
+				29EBB4A026AB9AD400A298EE /* UninstalledItemController.swift */,
+				29E822742769B2C800D46909 /* StatsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		29ED2F9125275C820073B760 = {
 			isa = PBXGroup;
 			children = (
@@ -71,14 +105,13 @@
 			children = (
 				29ED2F9D25275C820073B760 /* AppDelegate.swift */,
 				29ED2F9F25275C820073B760 /* SceneDelegate.swift */,
-				29ED2FA125275C820073B760 /* ViewController.swift */,
-				29ED2FA325275C820073B760 /* Main.storyboard */,
+				295E1E1025A2B34A00EF3CC1 /* Model */,
+				295E1E1125A2B34F00EF3CC1 /* View */,
+				295E1E1225A2B35B00EF3CC1 /* Controller */,
 				29ED2FA625275C850073B760 /* Assets.xcassets */,
 				29ED2FA825275C850073B760 /* LaunchScreen.storyboard */,
 				29ED2FAB25275C850073B760 /* Info.plist */,
 				29ED2FB325276D980073B760 /* GoogleService-Info.plist */,
-				29ED2FB5252779AE0073B760 /* Item.swift */,
-				29ED2FB725278D110073B760 /* Extensions.swift */,
 			);
 			path = ForfeitVerificationV3.2.1;
 			sourceTree = "<group>";
@@ -111,7 +144,7 @@
 				29ED2F9625275C820073B760 /* Sources */,
 				29ED2F9725275C820073B760 /* Frameworks */,
 				29ED2F9825275C820073B760 /* Resources */,
-				6F2A5A2D123D659BD2FBC032 /* [CP] Embed Pods Frameworks */,
+				0521A3AD7B685EE70D936626 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +203,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0521A3AD7B685EE70D936626 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ForfeitVerificationV3.2.1/Pods-ForfeitVerificationV3.2.1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ForfeitVerificationV3.2.1/Pods-ForfeitVerificationV3.2.1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ForfeitVerificationV3.2.1/Pods-ForfeitVerificationV3.2.1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		30D1BE3D102B5084839190A2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,23 +242,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6F2A5A2D123D659BD2FBC032 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ForfeitVerificationV3.2.1/Pods-ForfeitVerificationV3.2.1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ForfeitVerificationV3.2.1/Pods-ForfeitVerificationV3.2.1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ForfeitVerificationV3.2.1/Pods-ForfeitVerificationV3.2.1-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -216,7 +249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29EBB4A126AB9AD400A298EE /* UninstalledItemController.swift in Sources */,
+				295E1E0E25A2B34400EF3CC1 /* Brain.swift in Sources */,
 				29ED2FB825278D110073B760 /* Extensions.swift in Sources */,
+				29E822752769B2C800D46909 /* StatsController.swift in Sources */,
 				29ED2FB6252779AE0073B760 /* Item.swift in Sources */,
 				29ED2FA225275C820073B760 /* ViewController.swift in Sources */,
 				29ED2F9E25275C820073B760 /* AppDelegate.swift in Sources */,

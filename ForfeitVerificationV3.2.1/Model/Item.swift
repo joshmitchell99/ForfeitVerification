@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Item: Codable {
+class Item {
     var approved = false
     var deadline = ""
     var denied = false
@@ -17,7 +17,10 @@ class Item: Codable {
     var image = ""
     var sentForConfirmation = false
     var timeSubmitted = ""
+    var type = "photo"
     var amount = -1
     var userId = ""
+    var timelapseData = ""
+    var paid = false
 }
 
