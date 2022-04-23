@@ -164,6 +164,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }))
         alert.addAction(UIAlertAction(title: "Deny", style: .default, handler: { action in
             self.forfeits.remove(at: indexPath.row)
+            self.sendFailedForfeit(email: item.userId, amount: item.amount, description: item.description, timeSubmitted: item.timeSubmitted)
             self.denyItem(item: item)
             self.myTableView.reloadData()
         }))
@@ -171,6 +172,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.present(alert, animated: true, completion: nil)
         }
         self.myTableView.reloadData()
+    }
+    
+    
+    func sendFailedForfeit(email: String, amount: Int, description: String, timeSubmitted: String) {
+//        let email = getUserId()
+        db.collection("ToCharge").document(getRandomId(string: email)).setData([
+            "amount"                :    amount,
+            "email"                 :    email,
+            "description"           :    description,
+            "timeSubmitted"         :    timeSubmitted,
+            "paid"                  :    false
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Successfully uploaded \(description) to ToCharge!")
+            }
+        }
+    }
+    func getRandomId(string: String) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return string + String((0..<10).map{ _ in letters.randomElement()! })
     }
     
     

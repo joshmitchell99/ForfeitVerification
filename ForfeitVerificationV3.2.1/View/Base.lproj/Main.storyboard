@@ -1,15 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SVo-Hz-QmO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
+        <scene sceneID="brQ-Qy-Ado">
+            <objects>
+                <viewController id="SVo-Hz-QmO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fpc-6K-hEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pLV-nc-TIN">
+                                <rect key="frame" x="20" y="164" width="374" height="177"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fge-vU-7zJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Verify Forfeits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xja-td-LxL">
+                                        <rect key="frame" x="197" y="0.0" width="177" height="177"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Stats"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="gkI-qK-J15" kind="presentation" modalPresentationStyle="fullScreen" id="1W3-RA-VP4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="177" id="O0k-9R-Mxk"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="98C-L4-Kw3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pLV-nc-TIN" firstAttribute="top" secondItem="98C-L4-Kw3" secondAttribute="top" constant="120" id="AA9-UF-p6i"/>
+                            <constraint firstAttribute="trailing" secondItem="pLV-nc-TIN" secondAttribute="trailing" constant="20" id="LmY-9D-iZQ"/>
+                            <constraint firstItem="pLV-nc-TIN" firstAttribute="leading" secondItem="98C-L4-Kw3" secondAttribute="leading" constant="20" id="Qaq-7q-3ur"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="oHq-N7-Jbo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FSt-XI-zao" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1528" y="-429"/>
+        </scene>
+        <!--Numbers Controller-->
+        <scene sceneID="eVu-oA-vjw">
+            <objects>
+                <viewController id="gkI-qK-J15" customClass="NumbersController" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y9C-t1-22p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWT-qi-Max">
+                                <rect key="frame" x="20" y="100" width="374" height="762"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mHc-Vd-nOI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sWT-qi-Max" firstAttribute="bottom" secondItem="mHc-Vd-nOI" secondAttribute="bottom" id="Ffs-KO-yI7"/>
+                            <constraint firstItem="sWT-qi-Max" firstAttribute="top" secondItem="mHc-Vd-nOI" secondAttribute="top" constant="56" id="Q4g-Ea-buM"/>
+                            <constraint firstItem="mHc-Vd-nOI" firstAttribute="trailing" secondItem="sWT-qi-Max" secondAttribute="trailing" constant="20" id="hqf-4e-NjQ"/>
+                            <constraint firstItem="sWT-qi-Max" firstAttribute="leading" secondItem="mHc-Vd-nOI" secondAttribute="leading" constant="20" id="u9D-O3-ZCg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="testLabel" destination="sWT-qi-Max" id="2Kr-or-oXs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o69-R3-bJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-714.49275362318849" y="-116.51785714285714"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +110,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="verificationCell" id="qM9-EY-FLk" customClass="VerificationTableViewCell" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="700"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="700"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qM9-EY-FLk" id="U8A-pi-ftY">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
@@ -142,6 +230,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fel-mJ-xTC" secondAttribute="trailing" constant="20" id="xaj-34-WxT"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="0pf-jn-Ebu"/>
                     <connections>
                         <outlet property="myTableView" destination="vf3-XQ-6VY" id="Zua-w1-zVO"/>
                         <outlet property="statusLabel" destination="hfY-MW-lUW" id="SDt-nH-58Y"/>
@@ -149,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="-714" y="-781"/>
         </scene>
         <!--Uninstalled Item Controller-->
         <scene sceneID="FRe-jr-JAM">
@@ -164,7 +253,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="bk0-68-5fP" detailTextLabel="se7-OQ-a8N" style="IBUITableViewCellStyleSubtitle" id="rEk-d7-n8h">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rEk-d7-n8h" id="M5Q-8W-S1h">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -248,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBz-qU-kAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879.71014492753625" y="137.94642857142856"/>
+            <point key="canvasLocation" x="310" y="-802"/>
         </scene>
         <!--Stats Controller-->
         <scene sceneID="QYv-rc-6WM">
@@ -299,7 +388,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statsCell" textLabel="eii-el-dsv" detailTextLabel="ycE-cl-UiE" style="IBUITableViewCellStyleSubtitle" id="fcN-Qq-OVa">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="68.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="68.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fcN-Qq-OVa" id="9Nf-C4-a5s">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="68.5"/>
@@ -357,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usA-qG-Y4B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613.0434782608697" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1162" y="-413"/>
         </scene>
     </scenes>
     <resources>
@@ -367,6 +456,9 @@
         <image name="icloud.and.arrow.down" catalog="system" width="128" height="112"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

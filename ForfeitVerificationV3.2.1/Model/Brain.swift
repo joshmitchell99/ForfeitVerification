@@ -42,4 +42,22 @@ struct Brain {
         return item
     }
     
+    func convertToItem(_ item: DocumentSnapshot) -> Item {
+        let newForfeit = Item()
+        newForfeit.amount = item["amount"] as! Int
+        newForfeit.approved = item["approved"] as! Bool
+        newForfeit.deadline = item["deadline"] as! String
+        newForfeit.denied = item["denied"] as! Bool
+        newForfeit.description = item["description"] as! String
+        newForfeit.id = item["id"] as! String
+        newForfeit.image = item["image"] as! String
+        newForfeit.paid = item["paid"] as! Bool
+        newForfeit.sentForConfirmation = item["sentForConfirmation"] as! Bool
+        newForfeit.timeSubmitted = item["timeSubmitted"] as! String
+        newForfeit.timelapseData = item["timelapse"] as! String
+        newForfeit.type = item["type"] as! String
+        newForfeit.userId = item["userId"] as! String
+        return newForfeit
+    }
+    
 }

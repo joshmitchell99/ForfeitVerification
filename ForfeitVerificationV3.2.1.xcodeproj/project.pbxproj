@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2913778E2813E16400FD4225 /* NumbersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2913778D2813E16400FD4225 /* NumbersController.swift */; };
 		295E1E0E25A2B34400EF3CC1 /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E1E0D25A2B34400EF3CC1 /* Brain.swift */; };
 		29E822752769B2C800D46909 /* StatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E822742769B2C800D46909 /* StatsController.swift */; };
 		29EBB4A126AB9AD400A298EE /* UninstalledItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EBB4A026AB9AD400A298EE /* UninstalledItemController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2913778D2813E16400FD4225 /* NumbersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersController.swift; sourceTree = "<group>"; };
 		295E1E0D25A2B34400EF3CC1 /* Brain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brain.swift; sourceTree = "<group>"; };
 		29E822742769B2C800D46909 /* StatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsController.swift; sourceTree = "<group>"; };
 		29EBB4A026AB9AD400A298EE /* UninstalledItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstalledItemController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				29ED2FA125275C820073B760 /* ViewController.swift */,
 				29EBB4A026AB9AD400A298EE /* UninstalledItemController.swift */,
 				29E822742769B2C800D46909 /* StatsController.swift */,
+				2913778D2813E16400FD4225 /* NumbersController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				29E822752769B2C800D46909 /* StatsController.swift in Sources */,
 				29ED2FB6252779AE0073B760 /* Item.swift in Sources */,
 				29ED2FA225275C820073B760 /* ViewController.swift in Sources */,
+				2913778E2813E16400FD4225 /* NumbersController.swift in Sources */,
 				29ED2F9E25275C820073B760 /* AppDelegate.swift in Sources */,
 				29ED2FA025275C820073B760 /* SceneDelegate.swift in Sources */,
 			);
