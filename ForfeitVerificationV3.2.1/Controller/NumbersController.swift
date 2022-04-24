@@ -15,8 +15,16 @@ class NumbersController: UIViewController {
     let brain = Brain()
     
     var forfeits: [Item] = []
+    var totalUserCount = 0
+    var totalChargedAmount = 0
     
-    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var totalUserCountLabel: UILabel!
+    @IBOutlet weak var totalForfeitCountLabel: UILabel!
+    @IBOutlet weak var totalDonatedCountLabel: UILabel!
+    @IBOutlet weak var totalWaitingForApprovalCountLabel: UILabel!
+    @IBOutlet weak var totalApprovedCountLabel: UILabel!
+    @IBOutlet weak var totalDeniedCountLabel: UILabel!
+    @IBOutlet weak var totalUsersThatHaveSetAForfeitLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +37,6 @@ class NumbersController: UIViewController {
         db.collection("Users").getDocuments { [self] snapshot, error in
             guard let snap = snapshot else { return }
             let userCount = snap.documents.count
-            testLabel.text = "Number of users is: " + String(userCount)
         }
     }
     
@@ -40,10 +47,11 @@ class NumbersController: UIViewController {
         db.collection("Users").getDocuments { [self] snapshot, error in
             guard let snap = snapshot else { return }
             print("first snap document is ", snap.documents[0]["Forfeits"])
-            return
+            
+            totalUserCount = snap.documents.count
+            
             for userDoc in snap.documents {
                 db.collection("Users").document(userDoc.documentID).collection("Forfeits").getDocuments { snapshot, error in
-                    print("Iterating over ", userDoc.documentID)
                     guard let snap = snapshot else { return }
                     for item in snap.documents {
                         let newForfeit = brain.convertToItem(item)
@@ -52,23 +60,56 @@ class NumbersController: UIViewController {
                     refreshUI()
                 }
             }
+            
+            return
+            for userDoc in snap.documents {
+                print("Userdoc is ", userDoc)
+                if userDoc["Forfeits"] != nil {
+                    for forfeit in userDoc["Forfeits"]! as! Array<DocumentSnapshot> {
+                        print("forfeit is ", forfeit)
+                    }
+                }
+            }
+        }
+        
+        db.collection("Charged").getDocuments { [self] snapshot, error in
+            guard let snap = snapshot else { return }
+            for doc in snap.documents {
+                if (doc["id"] as! String).contains("tube") == false {
+                    totalChargedAmount += doc["amount"]! as! Int
+                }
+            }
         }
     }
     
     func refreshUI() {
+        var approvedCount = 0, deniedCount = 0, paidCount = 0, waitingToBeVerifiedCount = 0
         for forfeit in forfeits {
-            var approvedCount = 0, deniedCount = 0, paidCount = 0, totalLost = 0, waitingToBeVerifiedCount = 0
             if forfeit.approved == true { approvedCount += 1 }
             if forfeit.denied == true { deniedCount += 1 }
             if forfeit.paid == true {
                 paidCount += 1
-                totalLost += forfeit.amount
             }
             if (forfeit.sentForConfirmation == true && forfeit.approved == false && forfeit.denied == false) {
                 waitingToBeVerifiedCount += 1
             }
-            testLabel.text = "\(approvedCount), \(deniedCount), \(paidCount), \(totalLost), \(waitingToBeVerifiedCount), \(forfeits.count)"
         }
+        
+        var usersThatHaveMadeAForfeit: [String] = []
+        for forfeit in forfeits {
+            if usersThatHaveMadeAForfeit.contains(forfeit.userId) == false {
+                usersThatHaveMadeAForfeit.append(forfeit.userId)
+            }
+        }
+        
+        totalUserCountLabel.text = String(totalUserCount)
+        totalForfeitCountLabel.text = String(forfeits.count)
+        totalDonatedCountLabel.text = String(totalChargedAmount)
+        totalWaitingForApprovalCountLabel.text = String(waitingToBeVerifiedCount)
+        totalApprovedCountLabel.text = String(approvedCount)
+        totalDeniedCountLabel.text = String(deniedCount)
+        totalUsersThatHaveSetAForfeitLabel.text = String(usersThatHaveMadeAForfeit.count)
+        
     }
 
 }

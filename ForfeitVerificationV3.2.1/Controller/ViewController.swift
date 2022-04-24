@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var statusLabel: UILabel!
     
+    let brain = Brain()
     let db = Firestore.firestore()
     let storage = Storage.storage()
     var forfeits: [Item] = []
@@ -36,20 +37,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-//        other.chargeForfeits()
         
         myTableView.delegate = self
         myTableView.dataSource = self
         
         getUserIDs()
-//        loadForfeits()
         
         myTableView.refreshControl = UIRefreshControl()
         myTableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
-        
-        self.myTableView.reloadData()
+    }
+    
+    @IBAction func backPressed(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
     
     /*
@@ -58,63 +57,79 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      It then loads the forfeits, iterating through the userID array
      
      */
-    
+        
     func getUserIDs() {
-        statusLabel.text = "Getting user IDs"
         print("Getting user IDs")
-        db.collection("Users").getDocuments() { [self] (querySnapshot, Error) in
-            if let error = Error {
-                print("Couldn't get the userIDs from Firestore :( ", error)
-            } else {
-                for document in querySnapshot!.documents {
-                    print("...\(document.documentID) => \(document.data())")
-                    statusLabel.text = "...\(document.documentID) => \(document.data())"
-                    let userId = document.documentID
-                    if self.idArray.contains(userId) == false {
-                        self.idArray.append(userId)
-                    }
+        db.collection("Users").getDocuments() { [self] (snapshot, error) in
+            guard let snap = snapshot else { return }
+            for user in snap.documents {
+                let userId = user.documentID
+                if self.idArray.contains(userId) == false {
+                    self.idArray.append(userId)
                 }
             }
+            print("calling loadForfeits1")
+            loadForfeits1()
         }
     }
     
-    func loadForfeits() {
-        statusLabel.text = "Loading Forfeits"
-        print("Loading Forfeits")
+    func loadForfeits1() {
         forfeits = []
         for id in idArray {
-            print("ID iterating on is... ", id)
-            statusLabel.text = "ID iterating on is... " + id
-            db.collection("Users").document(id).collection("Forfeits").getDocuments { (querySnapshot, Error) in
-                if let error = Error {
-                    print("There was an issue retrieving data from Firestore", error)
-                } else {
-                    if let snapshotDocuments = querySnapshot?.documents {
-                        for doc in snapshotDocuments {
-                            let data = doc.data()
-                            let item = Item()
-                            item.id = (data["id"] as? String)!
-                            item.description = (data["description"] as? String)!
-                            item.deadline = (data["deadline"] as? String)!
-                            item.timeSubmitted = (data["timeSubmitted"] as? String)!
-                            item.image = (data["image"] as? String)!
-                            item.userId = id
-                            item.approved = (data["approved"] as? Bool)!
-                            item.denied = (data["denied"] as? Bool)!
-                            item.type = (data["type"] as? String)!
-                            if item.type == "timelapse" {
-                                item.image = UIImage(systemName: "timelapse")!.toString()!
-                            }
-                            if item.approved == false && item.denied == false {
-                                self.forfeits.append(item)
-                                self.myTableView.reloadData()
-                            }
-                        }
+            db.collection("Users").document(id).collection("Forfeits").getDocuments { [self] snapshot, error in
+                guard let snap = snapshot else { return }
+                for forfeit in snap.documents {
+                    let item = brain.convertToItem(forfeit)
+//                    print("new forfeit is ", item.description, item.amount, item.approved, item.denied, item.sentForConfirmation)
+                    if item.approved ==  false && item.denied == false && item.sentForConfirmation == true {
+                        print("appending forfeit", forfeits.count)
+                        forfeits.append(item)
                     }
                 }
+                print("reloading tableview data!!!!!!!!!!", forfeits.count)
+                self.myTableView.reloadData()
             }
         }
     }
+    
+//    func loadForfeits() {
+//        statusLabel.text = "Loading Forfeits"
+//        print("Loading Forfeits")
+//        forfeits = []
+//        for id in idArray {
+//            print("ID iterating on is... ", id)
+//            statusLabel.text = "ID iterating on is... " + id
+//            db.collection("Users").document(id).collection("Forfeits").getDocuments { (querySnapshot, Error) in
+//                if let error = Error {
+//                    print("There was an issue retrieving data from Firestore", error)
+//                } else {
+//                    if let snapshotDocuments = querySnapshot?.documents {
+//                        for doc in snapshotDocuments {
+//                            let data = doc.data()
+//                            let item = Item()
+//                            item.id = (data["id"] as? String)!
+//                            item.description = (data["description"] as? String)!
+//                            item.deadline = (data["deadline"] as? String)!
+//                            item.timeSubmitted = (data["timeSubmitted"] as? String)!
+//                            item.image = (data["image"] as? String)!
+//                            item.userId = id
+//                            item.approved = (data["approved"] as? Bool)!
+//                            item.denied = (data["denied"] as? Bool)!
+//                            item.type = (data["type"] as? String)!
+//                            if item.type == "timelapse" {
+//                                item.image = UIImage(systemName: "timelapse")!.toString()!
+//                            }
+//                            if item.approved == false && item.denied == false {
+//                                self.forfeits.append(item)
+//                                self.myTableView.reloadData()
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        myTableView.reloadData()
+//    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -154,7 +169,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //              }
 //            }
 //        }
-//
         
         let alert = UIAlertController(title: "Approve or deny this?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Approve", style: .default, handler: { action in
@@ -222,9 +236,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: - PULL TO REFRESH
     @objc func didPullToRefresh() {
-        statusLabel.text = "refreshed"
 //        getUserIDs()
-        loadForfeits()
+//        loadForfeits()
         self.myTableView.reloadData()
         DispatchQueue.main.async {
             self.myTableView.refreshControl?.endRefreshing()
