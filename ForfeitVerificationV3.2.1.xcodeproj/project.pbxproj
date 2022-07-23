@@ -14,6 +14,10 @@
 		291377992814E99D00FD4225 /* AirbnbCerealLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 291377932814E99A00FD4225 /* AirbnbCerealLight.ttf */; };
 		2913779A2814E99D00FD4225 /* AirbnbCerealBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 291377942814E99B00FD4225 /* AirbnbCerealBlack.ttf */; };
 		2913779B2814E99D00FD4225 /* AirbnbCerealExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 291377952814E99D00FD4225 /* AirbnbCerealExtraBold.ttf */; };
+		2923134628224A0300C1E84E /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2923134528224A0300C1E84E /* K.swift */; };
+		292E82562820ED330084BE41 /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E82552820ED330084BE41 /* UsersController.swift */; };
+		292E82582821045E0084BE41 /* VerifiedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E82572821045E0084BE41 /* VerifiedController.swift */; };
+		293773BD282245DF00D0FE20 /* ForfeitsPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293773BC282245DF00D0FE20 /* ForfeitsPresentationController.swift */; };
 		295E1E0E25A2B34400EF3CC1 /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E1E0D25A2B34400EF3CC1 /* Brain.swift */; };
 		29E822752769B2C800D46909 /* StatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E822742769B2C800D46909 /* StatsController.swift */; };
 		29EBB4A126AB9AD400A298EE /* UninstalledItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EBB4A026AB9AD400A298EE /* UninstalledItemController.swift */; };
@@ -37,6 +41,10 @@
 		291377932814E99A00FD4225 /* AirbnbCerealLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AirbnbCerealLight.ttf; sourceTree = "<group>"; };
 		291377942814E99B00FD4225 /* AirbnbCerealBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AirbnbCerealBlack.ttf; sourceTree = "<group>"; };
 		291377952814E99D00FD4225 /* AirbnbCerealExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AirbnbCerealExtraBold.ttf; sourceTree = "<group>"; };
+		2923134528224A0300C1E84E /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		292E82552820ED330084BE41 /* UsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
+		292E82572821045E0084BE41 /* VerifiedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedController.swift; sourceTree = "<group>"; };
+		293773BC282245DF00D0FE20 /* ForfeitsPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForfeitsPresentationController.swift; sourceTree = "<group>"; };
 		295E1E0D25A2B34400EF3CC1 /* Brain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brain.swift; sourceTree = "<group>"; };
 		29E822742769B2C800D46909 /* StatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsController.swift; sourceTree = "<group>"; };
 		29EBB4A026AB9AD400A298EE /* UninstalledItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstalledItemController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,7 @@
 				295E1E0D25A2B34400EF3CC1 /* Brain.swift */,
 				29ED2FB5252779AE0073B760 /* Item.swift */,
 				29ED2FB725278D110073B760 /* Extensions.swift */,
+				2923134528224A0300C1E84E /* K.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -106,6 +115,9 @@
 				29EBB4A026AB9AD400A298EE /* UninstalledItemController.swift */,
 				29E822742769B2C800D46909 /* StatsController.swift */,
 				2913778D2813E16400FD4225 /* NumbersController.swift */,
+				292E82552820ED330084BE41 /* UsersController.swift */,
+				292E82572821045E0084BE41 /* VerifiedController.swift */,
+				293773BC282245DF00D0FE20 /* ForfeitsPresentationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -285,11 +297,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				29EBB4A126AB9AD400A298EE /* UninstalledItemController.swift in Sources */,
+				293773BD282245DF00D0FE20 /* ForfeitsPresentationController.swift in Sources */,
 				295E1E0E25A2B34400EF3CC1 /* Brain.swift in Sources */,
 				29ED2FB825278D110073B760 /* Extensions.swift in Sources */,
 				29E822752769B2C800D46909 /* StatsController.swift in Sources */,
+				2923134628224A0300C1E84E /* K.swift in Sources */,
+				292E82582821045E0084BE41 /* VerifiedController.swift in Sources */,
 				29ED2FB6252779AE0073B760 /* Item.swift in Sources */,
 				29ED2FA225275C820073B760 /* ViewController.swift in Sources */,
+				292E82562820ED330084BE41 /* UsersController.swift in Sources */,
 				2913778E2813E16400FD4225 /* NumbersController.swift in Sources */,
 				29ED2F9E25275C820073B760 /* AppDelegate.swift in Sources */,
 				29ED2FA025275C820073B760 /* SceneDelegate.swift in Sources */,
@@ -438,7 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Q9YK3MTQ6;
+				DEVELOPMENT_TEAM = A2CJRG8KKK;
 				INFOPLIST_FILE = ForfeitVerificationV3.2.1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,7 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Q9YK3MTQ6;
+				DEVELOPMENT_TEAM = A2CJRG8KKK;
 				INFOPLIST_FILE = ForfeitVerificationV3.2.1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

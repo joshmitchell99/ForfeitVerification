@@ -25,12 +25,40 @@ class NumbersController: UIViewController {
     @IBOutlet weak var totalApprovedCountLabel: UILabel!
     @IBOutlet weak var totalDeniedCountLabel: UILabel!
     @IBOutlet weak var totalUsersThatHaveSetAForfeitLabel: UILabel!
+    @IBOutlet weak var totalForfeitsTodayLabel: UILabel!
+    @IBOutlet weak var totalForfeitsThisWeekLabel: UILabel!
+    @IBOutlet weak var totalForfeitsThisMonthLabel: UILabel!
+    @IBOutlet weak var totalOnTheLineLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadCurrentNumberOfUsersFromFS()
         loadForfeitStatsFromFS()
+    }
+    
+    @IBAction func totalForfeitsPressed(_ sender: UIButton) {
+        let forfeitsPresentationVC = K.mainStoryBoard.instantiateViewController(withIdentifier: "forfeitsPresentationController") as! ForfeitsPresentationController
+        forfeitsPresentationVC.forfeits = forfeits
+        present(forfeitsPresentationVC, animated:true)
+    }
+    
+    @IBAction func forfeitsTodayPressed(_ sender: UIButton) {
+        let forfeitsPresentationVC = K.mainStoryBoard.instantiateViewController(withIdentifier: "forfeitsPresentationController") as! ForfeitsPresentationController
+        forfeitsPresentationVC.forfeits = pastDayCount
+        present(forfeitsPresentationVC, animated:true)
+    }
+    
+    @IBAction func forfeitsThisWeekPressed(_ sender: UIButton) {
+        let forfeitsPresentationVC = K.mainStoryBoard.instantiateViewController(withIdentifier: "forfeitsPresentationController") as! ForfeitsPresentationController
+        forfeitsPresentationVC.forfeits = pastWeekCount
+        present(forfeitsPresentationVC, animated:true)
+    }
+    
+    @IBAction func forfeitsThisMonthPressed(_ sender: UIButton) {
+        let forfeitsPresentationVC = K.mainStoryBoard.instantiateViewController(withIdentifier: "forfeitsPresentationController") as! ForfeitsPresentationController
+        forfeitsPresentationVC.forfeits = pastMonthCount
+        present(forfeitsPresentationVC, animated:true)
     }
     
     func loadCurrentNumberOfUsersFromFS() {
@@ -82,17 +110,29 @@ class NumbersController: UIViewController {
         }
     }
     
+    var approvedCount: [Item] = [], deniedCount: [Item] = [], paidCount: [Item] = [], waitingToBeVerifiedCount: [Item] = [], pastDayCount: [Item] = [], pastWeekCount: [Item] = [], pastMonthCount: [Item] = []
+    var totalOnTheLine = 0
     func refreshUI() {
-        var approvedCount = 0, deniedCount = 0, paidCount = 0, waitingToBeVerifiedCount = 0
+        approvedCount = []
+        deniedCount = []
+        paidCount = []
+        waitingToBeVerifiedCount = []
+        pastDayCount = []
+        pastWeekCount = []
+        pastMonthCount = []
         for forfeit in forfeits {
-            if forfeit.approved == true { approvedCount += 1 }
-            if forfeit.denied == true { deniedCount += 1 }
+            if forfeit.approved == true { approvedCount.append(forfeit) }
+            if forfeit.denied == true { deniedCount.append(forfeit) }
             if forfeit.paid == true {
-                paidCount += 1
+                paidCount.append(forfeit)
             }
             if (forfeit.sentForConfirmation == true && forfeit.approved == false && forfeit.denied == false) {
-                waitingToBeVerifiedCount += 1
+                waitingToBeVerifiedCount.append(forfeit)
             }
+            if forfeit.isInPastNumberOfDays(1) { pastDayCount.append(forfeit) }
+            if forfeit.isInPastNumberOfDays(7) { pastWeekCount.append(forfeit) }
+            if forfeit.isInPastNumberOfDays(30) { pastMonthCount.append(forfeit) }
+            totalOnTheLine += forfeit.amount
         }
         
         var usersThatHaveMadeAForfeit: [String] = []
@@ -103,13 +143,16 @@ class NumbersController: UIViewController {
         }
         
         totalUserCountLabel.text = String(totalUserCount)
-        totalForfeitCountLabel.text = String(forfeits.count)
+//        totalForfeitCountLabel.text = String(forfeits.count)
         totalDonatedCountLabel.text = String(totalChargedAmount)
-        totalWaitingForApprovalCountLabel.text = String(waitingToBeVerifiedCount)
-        totalApprovedCountLabel.text = String(approvedCount)
-        totalDeniedCountLabel.text = String(deniedCount)
+        totalWaitingForApprovalCountLabel.text = String(waitingToBeVerifiedCount.count)
+        totalApprovedCountLabel.text = String(approvedCount.count)
+        totalDeniedCountLabel.text = String(deniedCount.count)
         totalUsersThatHaveSetAForfeitLabel.text = String(usersThatHaveMadeAForfeit.count)
-        
+        totalForfeitsTodayLabel.text = String(pastDayCount.count)
+        totalForfeitsThisWeekLabel.text = String(pastWeekCount.count)
+        totalForfeitsThisMonthLabel.text = String(pastMonthCount.count)
+        totalOnTheLineLabel.text = String(totalOnTheLine)
     }
 
 }

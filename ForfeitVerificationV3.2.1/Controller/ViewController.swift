@@ -16,16 +16,18 @@ class VerificationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imageLabel: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeSubmittedLabel: UILabel!
     @IBOutlet weak var deadlineLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var howLongAgoSubmittedLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
     
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var myTableView: UITableView!
-    @IBOutlet weak var statusLabel: UILabel!
     
     let brain = Brain()
     let db = Firestore.firestore()
@@ -37,6 +39,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        brain.setDatesForNewUsers()
         
         myTableView.delegate = self
         myTableView.dataSource = self
@@ -68,12 +72,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.idArray.append(userId)
                 }
             }
-            print("calling loadForfeits1")
-            loadForfeits1()
+            print("calling loadForfeits")
+            loadForfeits()
         }
     }
     
-    func loadForfeits1() {
+    func loadForfeits() {
         forfeits = []
         for id in idArray {
             db.collection("Users").document(id).collection("Forfeits").getDocuments { [self] snapshot, error in
@@ -87,50 +91,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                 }
                 print("reloading tableview data!!!!!!!!!!", forfeits.count)
+                forfeits.sort {
+                    $0.deadline.toDate() > $1.deadline.toDate()
+                }
                 self.myTableView.reloadData()
             }
         }
     }
-    
-//    func loadForfeits() {
-//        statusLabel.text = "Loading Forfeits"
-//        print("Loading Forfeits")
-//        forfeits = []
-//        for id in idArray {
-//            print("ID iterating on is... ", id)
-//            statusLabel.text = "ID iterating on is... " + id
-//            db.collection("Users").document(id).collection("Forfeits").getDocuments { (querySnapshot, Error) in
-//                if let error = Error {
-//                    print("There was an issue retrieving data from Firestore", error)
-//                } else {
-//                    if let snapshotDocuments = querySnapshot?.documents {
-//                        for doc in snapshotDocuments {
-//                            let data = doc.data()
-//                            let item = Item()
-//                            item.id = (data["id"] as? String)!
-//                            item.description = (data["description"] as? String)!
-//                            item.deadline = (data["deadline"] as? String)!
-//                            item.timeSubmitted = (data["timeSubmitted"] as? String)!
-//                            item.image = (data["image"] as? String)!
-//                            item.userId = id
-//                            item.approved = (data["approved"] as? Bool)!
-//                            item.denied = (data["denied"] as? Bool)!
-//                            item.type = (data["type"] as? String)!
-//                            if item.type == "timelapse" {
-//                                item.image = UIImage(systemName: "timelapse")!.toString()!
-//                            }
-//                            if item.approved == false && item.denied == false {
-//                                self.forfeits.append(item)
-//                                self.myTableView.reloadData()
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        myTableView.reloadData()
-//    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return forfeits.count
@@ -138,26 +105,65 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("Refreshing tableview")
-        statusLabel.text = "Fully loaded"
         let cell = tableView.dequeueReusableCell(withIdentifier: "verificationCell", for: indexPath) as! VerificationTableViewCell
-        cell.descriptionLabel.text = forfeits[indexPath.row].description
-        cell.timeLabel.text = forfeits[indexPath.row].timeSubmitted
-        cell.deadlineLabel.text = forfeits[indexPath.row].deadline
-        cell.imageLabel.image = forfeits[indexPath.row].image.toImage()
-        cell.idLabel.text = forfeits[indexPath.row].id
+        let forfeit = forfeits[indexPath.row]
+        cell.descriptionLabel.text = forfeit.description
+        cell.timeSubmittedLabel.text = forfeit.timeSubmitted
+        cell.deadlineLabel.text = forfeit.deadline
+        cell.imageLabel.image = forfeit.image.toImage()
+        cell.idLabel.text = forfeit.id
+        cell.amountLabel.text = String(forfeit.amount)
+        cell.emailLabel.text = forfeit.userId
+        cell.howLongAgoSubmittedLabel.text = forfeit.deadline.toDate().getDaysSinceThenAsFormattedString()
+                
         return cell
     }
     
+    func playVideoWithID(_ id: String) {
+        let asset = AVAsset(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/forfeitv3-2-1.appspot.com/o/\(id).mp4?alt=media&token=a21a9249-1f20-4dd3-a232-fad2699074c1")!)
+        let item = AVPlayerItem(asset: asset)
+
+        let player = AVPlayer(playerItem: item)
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        present(playerController, animated: true) {
+            print("PLAYING")
+            player.play()
+        }
+    }
+    
+//    func playVideo(path: URL) {
+//        let player = AVPlayer(url: path)
+//        let controller=AVPlayerViewController()
+//        controller.player=player
+//        controller.view.frame = self.view.frame
+//        self.view.addSubview(controller.view)
+//        self.addChild(controller)
+//        player.play()
+//    }
+    
+//    func playVideoWithID(_ id: String) {
+////        let player = AVPlayer(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/forfeitv3-2-1.appspot.com/o/\(id).mp4")!)
+//        let player = AVPlayer(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/forfeitv3-2-1.appspot.com/o/\(id).mp4?alt=media&token=a21a9249-1f20-4dd3-a232-fad2699074c1")!)
+//        let controller=AVPlayerViewController()
+//        controller.player=player
+//        controller.view.frame = self.view.frame
+//        self.view.addSubview(controller.view)
+//        self.addChild(controller)
+//        player.play()
+//    }
+    
+    var prevSelectedIds: [String] = []
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let item = self.forfeits[indexPath.row]
         
-//        if item.type == "timelapse" {
+        if item.type == "timelapse" && prevSelectedIds.contains(item.id) == false {
+            prevSelectedIds.append(item.id)
+            self.playVideoWithID(item.id)
+            
 //            let storageRef = Storage.storage().reference()
 //            let videoRef = Storage.storage().reference(withPath: "\(item.id).mp4")
-//            print("Description of video ", videoRef.debugDescription)
-//
-//            // Create a reference to the file you want to download
-//            let islandRef = storageRef.child("images.mp4")
 //
 //            // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
 //            videoRef.getData(maxSize: 100 * 1024 * 1024) { data, error in
@@ -165,23 +171,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //                print("Erros's ", error)
 //              } else {
 //                print("No error ", videoRef.fullPath)
-//                self.playVideo(path: URL(string: videoRef.fullPath)!)
+////                self.playVideo(path: URL(string: "https://firebasestorage.googleapis.com/v0/b/forfeitv3-2-1.appspot.com/o/\(item.id).mp4")!)
+////                self.playVideo(path: URL(string: videoRef.fullPath)!)
 //              }
 //            }
-//        }
+        }
         
         let alert = UIAlertController(title: "Approve or deny this?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Approve", style: .default, handler: { action in
             self.forfeits.remove(at: indexPath.row)
+            self.addForfeitToVerified(item)
             self.approveItem(item: item)
             self.myTableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Deny", style: .default, handler: { action in
             self.forfeits.remove(at: indexPath.row)
             self.sendFailedForfeit(email: item.userId, amount: item.amount, description: item.description, timeSubmitted: item.timeSubmitted)
+            self.addForfeitToVerified(item)
             self.denyItem(item: item)
             self.myTableView.reloadData()
         }))
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [self] action in
+            if prevSelectedIds.contains(item.id) {
+                prevSelectedIds.removeAll { str in
+                    str == item.id
+                }
+            }
+        }
+        alert.addAction(cancelAction)
         if item.description != "DO NOT APPROVE/DENY!!!" {
             self.present(alert, animated: true, completion: nil)
         }
@@ -210,6 +227,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return string + String((0..<10).map{ _ in letters.randomElement()! })
     }
     
+    func addForfeitToVerified(_ item: Item) {
+        db.collection("Verified").addDocument(data: [
+            "amount"                :    item.amount,
+            "approved"              :    item.approved,
+            "deadline"              :    item.deadline,
+            "denied"                :    item.denied,
+            "description"           :    item.description,
+            "id"                    :    item.id,
+            "image"                 :    item.image,
+            "paid"                  :    item.paid,
+            "sentForConfirmation"   :    item.sentForConfirmation,
+            "timeSubmitted"         :    item.timeSubmitted,
+            "timelapse"             :    item.timelapseData,
+            "type"                  :    item.type,
+            "userId"                :    item.userId,
+        ])
+    }
     
     func approveItem(item: Item) {
         print("approving item")
@@ -241,21 +275,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.myTableView.reloadData()
         DispatchQueue.main.async {
             self.myTableView.refreshControl?.endRefreshing()
-        }
-    }
-    
-    
-    func playVideo(path: URL) {
-        
-        let asset = AVAsset(url: path)
-        let item = AVPlayerItem(asset: asset)
-        
-        let player = AVPlayer(playerItem: item)
-        let playerController = AVPlayerViewController()
-        playerController.player = player
-        present(playerController, animated: true) {
-            print("PLAYING")
-            player.play()
         }
     }
     

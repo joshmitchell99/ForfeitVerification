@@ -50,4 +50,32 @@ extension Item {
             return "Active"
         }
     }
+    
+    func isInPastNumberOfDays(_ days: Int) -> Bool {
+        let date = self.deadline.toDate()
+        if date > Date().addingTimeInterval(TimeInterval(-86400*days)) {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+extension Date {
+    func getDaysSinceThenAsFormattedString() -> String {
+        let forfeitDate = self
+        let secondDifference = Int(Date().timeIntervalSince(forfeitDate))
+        let minuteDifference = secondDifference / 60
+        let hourDifference = minuteDifference / 60
+        let dayDifference = hourDifference / 24
+        if hourDifference < 1 {
+            return "\(minuteDifference) mins"
+        } else if hourDifference < 24 {
+            return "\(hourDifference) hours"
+        } else if dayDifference == 1 {
+            return "Yesterday"
+        } else {
+            return "\(dayDifference) days"
+        }
+    }
 }

@@ -11,6 +11,8 @@ import Firebase
 
 struct Brain {
     
+    let db = Firestore.firestore()
+    
     func getCurrentTime() -> String {
         let currentDateTime = Date()
         
@@ -58,6 +60,20 @@ struct Brain {
         newForfeit.type = item["type"] as! String
         newForfeit.userId = item["userId"] as! String
         return newForfeit
+    }
+    
+    func setDatesForNewUsers() {
+        db.collection("Users").getDocuments { snapshot, error in
+            guard let snap = snapshot else { return }
+            for doc in snap.documents {
+                if doc["dateCreated"] == nil {
+                    db.collection("Users").document(doc.documentID).setData([
+                        "exists" : true,
+                        "dateCreated"  :  getCurrentTime()
+                    ])
+                }
+            }
+        }
     }
     
 }

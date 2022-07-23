@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gkI-qK-J15">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gkI-qK-J15">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +11,9 @@
     <customFonts key="customFonts">
         <array key="AirbnbCerealBold.ttf">
             <string>AirbnbCerealApp-Bold</string>
+        </array>
+        <array key="AirbnbCerealBook.ttf">
+            <string>AirbnbCerealApp-Book</string>
         </array>
         <array key="AirbnbCerealMedium.ttf">
             <string>AirbnbCerealApp-Medium</string>
@@ -33,34 +35,45 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="149.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lo-pf-EDg">
-                                                <rect key="frame" x="0.0" y="0.0" width="177" height="149.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="149.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="giV-Fq-Rq4">
-                                                        <rect key="frame" x="51" y="11.5" width="75" height="72.5"/>
+                                                        <rect key="frame" x="18" y="11.5" width="75" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="VYp-Fi-bDd"/>
                                                             <constraint firstAttribute="width" constant="75" id="jfA-b9-bdK"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryq-ku-h2X">
-                                                        <rect key="frame" x="68.5" y="94" width="40.5" height="31.5"/>
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-0j-73O">
-                                                        <rect key="frame" x="57.5" y="125.5" width="62.5" height="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-0j-73O">
+                                                        <rect key="frame" x="39.5" y="125.5" width="32" height="16"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7S-Ah-Rik">
+                                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="149.5"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <connections>
+                                                            <segue destination="TeA-91-aLc" kind="show" id="yNj-Xc-62r"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstItem="KpS-0j-73O" firstAttribute="centerX" secondItem="2lo-pf-EDg" secondAttribute="centerX" id="4Mw-B5-aT1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="U7S-Ah-Rik" secondAttribute="trailing" id="XEa-U5-c5E"/>
+                                                    <constraint firstAttribute="bottom" secondItem="U7S-Ah-Rik" secondAttribute="bottom" id="YXo-Gf-IOj"/>
                                                     <constraint firstItem="giV-Fq-Rq4" firstAttribute="top" secondItem="2lo-pf-EDg" secondAttribute="top" constant="10" id="ZXM-W8-CEK"/>
                                                     <constraint firstItem="ryq-ku-h2X" firstAttribute="centerX" secondItem="2lo-pf-EDg" secondAttribute="centerX" id="dCU-fT-VGc"/>
+                                                    <constraint firstItem="U7S-Ah-Rik" firstAttribute="leading" secondItem="2lo-pf-EDg" secondAttribute="leading" id="h4j-K3-KPo"/>
                                                     <constraint firstItem="KpS-0j-73O" firstAttribute="top" secondItem="ryq-ku-h2X" secondAttribute="bottom" id="oWj-2a-upR"/>
+                                                    <constraint firstItem="U7S-Ah-Rik" firstAttribute="top" secondItem="2lo-pf-EDg" secondAttribute="top" id="wQV-JT-ycI"/>
                                                     <constraint firstItem="giV-Fq-Rq4" firstAttribute="centerX" secondItem="2lo-pf-EDg" secondAttribute="centerX" id="x9A-zP-jRW"/>
                                                     <constraint firstAttribute="bottom" secondItem="KpS-0j-73O" secondAttribute="bottom" constant="8" id="zy7-NX-3od"/>
                                                 </constraints>
@@ -71,35 +84,46 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVj-5d-SOS">
-                                                <rect key="frame" x="197" y="0.0" width="177" height="149.5"/>
+                                                <rect key="frame" x="131.5" y="0.0" width="111" height="149.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ltR-zD-Cmn">
-                                                        <rect key="frame" x="51" y="10.5" width="75" height="73.5"/>
+                                                        <rect key="frame" x="18" y="10.5" width="75" height="73.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="VoG-m8-a5b"/>
                                                             <constraint firstAttribute="width" constant="75" id="zCo-XJ-U5T"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfK-8P-S7h">
-                                                        <rect key="frame" x="68.5" y="94" width="40.5" height="31.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfK-8P-S7h">
+                                                        <rect key="frame" x="36" y="94" width="39" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Forfeits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYh-NK-Wcr">
-                                                        <rect key="frame" x="51.5" y="125.5" width="74.5" height="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forfeits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYh-NK-Wcr">
+                                                        <rect key="frame" x="33.5" y="125.5" width="44" height="16"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dx3-SA-19n">
+                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="149.5"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <connections>
+                                                            <action selector="totalForfeitsPressed:" destination="gkI-qK-J15" eventType="touchUpInside" id="Q0a-Jy-Z0W"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstItem="pYh-NK-Wcr" firstAttribute="centerX" secondItem="SVj-5d-SOS" secondAttribute="centerX" id="0Vb-bJ-tNw"/>
                                                     <constraint firstItem="ltR-zD-Cmn" firstAttribute="top" secondItem="SVj-5d-SOS" secondAttribute="top" constant="10" id="8kY-OK-C1a"/>
+                                                    <constraint firstItem="Dx3-SA-19n" firstAttribute="top" secondItem="SVj-5d-SOS" secondAttribute="top" id="B0V-Wh-fBz"/>
                                                     <constraint firstItem="ltR-zD-Cmn" firstAttribute="centerX" secondItem="SVj-5d-SOS" secondAttribute="centerX" id="RYI-4e-KfR"/>
+                                                    <constraint firstItem="Dx3-SA-19n" firstAttribute="leading" secondItem="SVj-5d-SOS" secondAttribute="leading" id="c1g-lA-GoV"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Dx3-SA-19n" secondAttribute="bottom" id="caG-V5-yhr"/>
                                                     <constraint firstItem="VfK-8P-S7h" firstAttribute="centerX" secondItem="SVj-5d-SOS" secondAttribute="centerX" id="mtm-8O-QzZ"/>
                                                     <constraint firstAttribute="bottom" secondItem="pYh-NK-Wcr" secondAttribute="bottom" constant="8" id="qX8-j9-NRM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Dx3-SA-19n" secondAttribute="trailing" id="uyg-S0-eST"/>
                                                     <constraint firstItem="pYh-NK-Wcr" firstAttribute="top" secondItem="VfK-8P-S7h" secondAttribute="bottom" id="vz7-GJ-WbR"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -108,29 +132,24 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-d1-dvD">
-                                        <rect key="frame" x="0.0" y="169.5" width="374" height="149.5"/>
-                                        <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6UV-So-H5a">
-                                                <rect key="frame" x="0.0" y="0.0" width="177" height="149.5"/>
+                                                <rect key="frame" x="262.5" y="0.0" width="111.5" height="149.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2r3-ez-saS">
-                                                        <rect key="frame" x="51" y="11" width="75" height="72.5"/>
+                                                        <rect key="frame" x="18.5" y="11" width="75" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="91v-ab-MfJ"/>
                                                             <constraint firstAttribute="width" constant="75" id="Z7X-Gs-UMR"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ov0-Z9-wuP">
-                                                        <rect key="frame" x="68.5" y="94" width="40.5" height="31.5"/>
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Dollars Donated" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFa-Gv-bIv">
-                                                        <rect key="frame" x="27.5" y="125.5" width="122" height="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dollars Donated" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFa-Gv-bIv">
+                                                        <rect key="frame" x="10" y="125.5" width="91.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
@@ -151,34 +170,50 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-d1-dvD">
+                                        <rect key="frame" x="0.0" y="169.5" width="374" height="149.5"/>
+                                        <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31g-4L-Rux">
-                                                <rect key="frame" x="197" y="0.0" width="177" height="149.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="149.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineweight" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LgP-Yl-egq">
-                                                        <rect key="frame" x="51" y="12" width="75" height="71"/>
+                                                        <rect key="frame" x="18" y="12" width="75" height="71"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="b0g-Ao-J78"/>
                                                             <constraint firstAttribute="height" constant="75" id="g1R-Fm-oj7"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8E-lz-gTx">
-                                                        <rect key="frame" x="68.5" y="94" width="40.5" height="31.5"/>
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Waiting for Approval" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6C-i8-3gH">
-                                                        <rect key="frame" x="14.5" y="125.5" width="148" height="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awaiting Approval" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6C-i8-3gH">
+                                                        <rect key="frame" x="3.5" y="125.5" width="104.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hI-PQ-ubA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="149.5"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <connections>
+                                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="Jmr-dq-hAP"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="3hI-PQ-ubA" secondAttribute="trailing" id="PnQ-ul-3Cs"/>
                                                     <constraint firstItem="LgP-Yl-egq" firstAttribute="top" secondItem="31g-4L-Rux" secondAttribute="top" constant="10" id="TSm-ho-nS1"/>
                                                     <constraint firstItem="Y6C-i8-3gH" firstAttribute="top" secondItem="G8E-lz-gTx" secondAttribute="bottom" id="ces-eN-kEc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3hI-PQ-ubA" secondAttribute="bottom" id="dAn-p0-UMY"/>
                                                     <constraint firstItem="Y6C-i8-3gH" firstAttribute="centerX" secondItem="31g-4L-Rux" secondAttribute="centerX" id="fkB-IU-hhG"/>
+                                                    <constraint firstItem="3hI-PQ-ubA" firstAttribute="leading" secondItem="31g-4L-Rux" secondAttribute="leading" id="jba-Qg-qTn"/>
+                                                    <constraint firstItem="3hI-PQ-ubA" firstAttribute="top" secondItem="31g-4L-Rux" secondAttribute="top" id="kBM-vI-kR7"/>
                                                     <constraint firstItem="LgP-Yl-egq" firstAttribute="centerX" secondItem="31g-4L-Rux" secondAttribute="centerX" id="nyt-0B-e40"/>
                                                     <constraint firstItem="G8E-lz-gTx" firstAttribute="centerX" secondItem="31g-4L-Rux" secondAttribute="centerX" id="sy5-OW-Bux"/>
                                                     <constraint firstAttribute="bottom" secondItem="Y6C-i8-3gH" secondAttribute="bottom" constant="8" id="yc5-Bo-7jD"/>
@@ -189,41 +224,47 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0kQ-LM-bgc">
-                                        <rect key="frame" x="0.0" y="339" width="374" height="149.5"/>
-                                        <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcs-Ml-MNY">
-                                                <rect key="frame" x="0.0" y="0.0" width="177" height="149.5"/>
+                                                <rect key="frame" x="131.5" y="0.0" width="111" height="149.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fVE-TE-aSd">
-                                                        <rect key="frame" x="51" y="11" width="75" height="72.5"/>
+                                                        <rect key="frame" x="18" y="11" width="75" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="Ot5-gY-buR"/>
                                                             <constraint firstAttribute="height" constant="75" id="bit-mX-mAZ"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjc-CK-kHZ">
-                                                        <rect key="frame" x="68.5" y="94" width="40.5" height="31.5"/>
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Approved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzN-8Z-xG9">
-                                                        <rect key="frame" x="45" y="125.5" width="87.5" height="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzN-8Z-xG9">
+                                                        <rect key="frame" x="27" y="125.5" width="57" height="16"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4e-NJ-ulo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="149.5"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <connections>
+                                                            <segue destination="Xly-cW-x01" kind="show" id="d8b-La-Z3E"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstItem="lzN-8Z-xG9" firstAttribute="top" secondItem="Bjc-CK-kHZ" secondAttribute="bottom" id="3wA-WN-00P"/>
                                                     <constraint firstItem="Bjc-CK-kHZ" firstAttribute="centerX" secondItem="xcs-Ml-MNY" secondAttribute="centerX" id="6Hy-w5-Tv6"/>
+                                                    <constraint firstItem="B4e-NJ-ulo" firstAttribute="leading" secondItem="xcs-Ml-MNY" secondAttribute="leading" id="Kmm-nK-YUe"/>
                                                     <constraint firstItem="lzN-8Z-xG9" firstAttribute="centerX" secondItem="xcs-Ml-MNY" secondAttribute="centerX" id="PiR-YZ-dSl"/>
+                                                    <constraint firstAttribute="bottom" secondItem="B4e-NJ-ulo" secondAttribute="bottom" id="PxS-Xk-UHK"/>
                                                     <constraint firstItem="fVE-TE-aSd" firstAttribute="centerX" secondItem="xcs-Ml-MNY" secondAttribute="centerX" id="UI6-Gb-jOf"/>
                                                     <constraint firstItem="fVE-TE-aSd" firstAttribute="top" secondItem="xcs-Ml-MNY" secondAttribute="top" constant="10" id="Ulm-Jv-PbI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="B4e-NJ-ulo" secondAttribute="trailing" id="nKF-UL-4Jz"/>
+                                                    <constraint firstItem="B4e-NJ-ulo" firstAttribute="top" secondItem="xcs-Ml-MNY" secondAttribute="top" id="rIR-kz-RGE"/>
                                                     <constraint firstAttribute="bottom" secondItem="lzN-8Z-xG9" secondAttribute="bottom" constant="8" id="sG5-FT-DUb"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -233,23 +274,23 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-tE-Z12">
-                                                <rect key="frame" x="197" y="0.0" width="177" height="149.5"/>
+                                                <rect key="frame" x="262.5" y="0.0" width="111.5" height="149.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.app" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lte-PM-neC">
-                                                        <rect key="frame" x="51" y="11" width="75" height="72.5"/>
+                                                        <rect key="frame" x="18.5" y="11" width="75" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="8yy-OA-PUB"/>
                                                             <constraint firstAttribute="width" constant="75" id="XnG-rt-HS8"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMk-hO-jpu">
-                                                        <rect key="frame" x="68.5" y="94" width="40.5" height="31.5"/>
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Denied" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi7-Ec-j2M">
-                                                        <rect key="frame" x="53" y="125.5" width="71.5" height="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Denied" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi7-Ec-j2M">
+                                                        <rect key="frame" x="35.5" y="125.5" width="41" height="16"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
@@ -273,26 +314,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6EL-Rj-oWH">
-                                        <rect key="frame" x="0.0" y="508.5" width="374" height="149.5"/>
+                                        <rect key="frame" x="0.0" y="339" width="374" height="149.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4J-cJ-pQ1">
-                                                <rect key="frame" x="0.0" y="0.0" width="177" height="149.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="149.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yVp-q4-ZZw">
-                                                        <rect key="frame" x="51" y="11.5" width="75" height="72.5"/>
+                                                        <rect key="frame" x="18" y="11.5" width="75" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="F4e-zB-KjC"/>
                                                             <constraint firstAttribute="width" constant="75" id="MZF-AS-zYR"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eec-2Q-8fk">
-                                                        <rect key="frame" x="68.5" y="94" width="40.5" height="31.5"/>
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Users that've set a Forfeit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXz-9v-KHh">
-                                                        <rect key="frame" x="16.5" y="125.5" width="144.5" height="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Users set a Forfeit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXz-9v-KHh">
+                                                        <rect key="frame" x="4.5" y="125.5" width="102" height="16"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
@@ -314,23 +355,175 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plr-0d-lky">
-                                                <rect key="frame" x="197" y="0.0" width="177" height="149.5"/>
+                                                <rect key="frame" x="131.5" y="0.0" width="111" height="149.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aur-hd-chP">
-                                                        <rect key="frame" x="51" y="10.5" width="75" height="73.5"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aur-hd-chP">
+                                                        <rect key="frame" x="18" y="11" width="75" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="Ei0-Fp-0pJ"/>
                                                             <constraint firstAttribute="height" constant="75" id="u8s-YZ-VKB"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDe-Uv-7vC">
-                                                        <rect key="frame" x="68.5" y="94" width="40.5" height="31.5"/>
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUn-RK-Yxw">
-                                                        <rect key="frame" x="55" y="125.5" width="67" height="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forfeits Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUn-RK-Yxw">
+                                                        <rect key="frame" x="15" y="125.5" width="81" height="16"/>
+                                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
+                                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="375-Zy-ccQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="149.5"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <connections>
+                                                            <action selector="forfeitsTodayPressed:" destination="gkI-qK-J15" eventType="touchUpInside" id="eAy-if-9Ez"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="JUn-RK-Yxw" secondAttribute="bottom" constant="8" id="5bu-6q-bJ0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="375-Zy-ccQ" secondAttribute="trailing" id="6Gc-Ta-PA8"/>
+                                                    <constraint firstAttribute="bottom" secondItem="375-Zy-ccQ" secondAttribute="bottom" id="7nI-wT-BS0"/>
+                                                    <constraint firstItem="nDe-Uv-7vC" firstAttribute="centerX" secondItem="plr-0d-lky" secondAttribute="centerX" id="EWx-oO-HgA"/>
+                                                    <constraint firstItem="375-Zy-ccQ" firstAttribute="top" secondItem="plr-0d-lky" secondAttribute="top" id="NsR-Zs-cqH"/>
+                                                    <constraint firstItem="JUn-RK-Yxw" firstAttribute="centerX" secondItem="plr-0d-lky" secondAttribute="centerX" id="Ua5-Gu-PXo"/>
+                                                    <constraint firstItem="375-Zy-ccQ" firstAttribute="leading" secondItem="plr-0d-lky" secondAttribute="leading" id="Zz8-Ug-nNW"/>
+                                                    <constraint firstItem="JUn-RK-Yxw" firstAttribute="top" secondItem="nDe-Uv-7vC" secondAttribute="bottom" id="nWO-ZR-E1d"/>
+                                                    <constraint firstItem="aur-hd-chP" firstAttribute="centerX" secondItem="plr-0d-lky" secondAttribute="centerX" id="tyG-dc-AP6"/>
+                                                    <constraint firstItem="aur-hd-chP" firstAttribute="top" secondItem="plr-0d-lky" secondAttribute="top" constant="10" id="xoh-mH-RBo"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eST-bt-YYV">
+                                                <rect key="frame" x="262.5" y="0.0" width="111.5" height="149.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SHV-ef-JRa">
+                                                        <rect key="frame" x="18.5" y="11" width="75" height="72.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="75" id="8mo-cN-RMd"/>
+                                                            <constraint firstAttribute="height" constant="75" id="qyJ-dg-23T"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1T-SD-KiI">
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
+                                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forfeits this Week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gD-rC-Rj9">
+                                                        <rect key="frame" x="5" y="125.5" width="102" height="16"/>
+                                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
+                                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAr-33-q1p">
+                                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="149.5"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <connections>
+                                                            <action selector="forfeitsThisWeekPressed:" destination="gkI-qK-J15" eventType="touchUpInside" id="6CN-a7-jAr"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstItem="SHV-ef-JRa" firstAttribute="centerX" secondItem="eST-bt-YYV" secondAttribute="centerX" id="InN-q8-uVk"/>
+                                                    <constraint firstItem="SHV-ef-JRa" firstAttribute="top" secondItem="eST-bt-YYV" secondAttribute="top" constant="10" id="KZx-gC-8tq"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MAr-33-q1p" secondAttribute="trailing" id="bUs-u8-4ly"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8gD-rC-Rj9" secondAttribute="bottom" constant="8" id="d1n-fh-N5i"/>
+                                                    <constraint firstItem="8gD-rC-Rj9" firstAttribute="top" secondItem="d1T-SD-KiI" secondAttribute="bottom" id="lUA-Dt-ejR"/>
+                                                    <constraint firstItem="MAr-33-q1p" firstAttribute="leading" secondItem="eST-bt-YYV" secondAttribute="leading" id="mb0-yl-nMW"/>
+                                                    <constraint firstItem="8gD-rC-Rj9" firstAttribute="centerX" secondItem="eST-bt-YYV" secondAttribute="centerX" id="rOG-EA-35j"/>
+                                                    <constraint firstItem="d1T-SD-KiI" firstAttribute="centerX" secondItem="eST-bt-YYV" secondAttribute="centerX" id="uvy-06-Yw2"/>
+                                                    <constraint firstItem="MAr-33-q1p" firstAttribute="top" secondItem="eST-bt-YYV" secondAttribute="top" id="xwO-iZ-r4w"/>
+                                                    <constraint firstAttribute="bottom" secondItem="MAr-33-q1p" secondAttribute="bottom" id="zuo-Vy-Dd2"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="22A-cX-fyZ">
+                                        <rect key="frame" x="0.0" y="508.5" width="374" height="149.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSZ-6f-NQD">
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="149.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GlQ-SU-7y3">
+                                                        <rect key="frame" x="18" y="11" width="75" height="72.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="75" id="PnY-a4-ZyK"/>
+                                                            <constraint firstAttribute="width" constant="75" id="qWw-Wx-mVq"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuJ-6H-fAc">
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
+                                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forfeits this Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaJ-mh-9fy">
+                                                        <rect key="frame" x="2.5" y="125.5" width="106.5" height="16"/>
+                                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
+                                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjI-Vm-Uni">
+                                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="149.5"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <connections>
+                                                            <action selector="forfeitsThisMonthPressed:" destination="gkI-qK-J15" eventType="touchUpInside" id="3As-FC-Mbn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstItem="GlQ-SU-7y3" firstAttribute="top" secondItem="RSZ-6f-NQD" secondAttribute="top" constant="10" id="3Qy-Gs-eOv"/>
+                                                    <constraint firstItem="vaJ-mh-9fy" firstAttribute="top" secondItem="tuJ-6H-fAc" secondAttribute="bottom" id="Akg-Lq-IG4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XjI-Vm-Uni" secondAttribute="trailing" id="Tx1-SV-UX3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="XjI-Vm-Uni" secondAttribute="bottom" id="ULu-rV-2lU"/>
+                                                    <constraint firstItem="XjI-Vm-Uni" firstAttribute="leading" secondItem="RSZ-6f-NQD" secondAttribute="leading" id="WfY-WV-i0j"/>
+                                                    <constraint firstItem="tuJ-6H-fAc" firstAttribute="centerX" secondItem="RSZ-6f-NQD" secondAttribute="centerX" id="c4Z-pw-lBt"/>
+                                                    <constraint firstItem="GlQ-SU-7y3" firstAttribute="centerX" secondItem="RSZ-6f-NQD" secondAttribute="centerX" id="gJn-6y-dH8"/>
+                                                    <constraint firstItem="XjI-Vm-Uni" firstAttribute="top" secondItem="RSZ-6f-NQD" secondAttribute="top" id="kaC-8T-J2X"/>
+                                                    <constraint firstItem="vaJ-mh-9fy" firstAttribute="centerX" secondItem="RSZ-6f-NQD" secondAttribute="centerX" id="kdn-1I-BRG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="vaJ-mh-9fy" secondAttribute="bottom" constant="8" id="yPZ-jb-wug"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43n-vl-ooq">
+                                                <rect key="frame" x="131.5" y="0.0" width="111" height="149.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eSj-P6-yO3">
+                                                        <rect key="frame" x="18" y="11" width="75" height="72.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="75" id="MLt-2a-lVV"/>
+                                                            <constraint firstAttribute="height" constant="75" id="xFb-4p-8yu"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7j-u6-7RT">
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
+                                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total on the Line" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6b-Yo-Iia">
+                                                        <rect key="frame" x="9" y="125.5" width="93" height="16"/>
                                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
@@ -338,12 +531,50 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="JUn-RK-Yxw" secondAttribute="bottom" constant="8" id="5bu-6q-bJ0"/>
-                                                    <constraint firstItem="nDe-Uv-7vC" firstAttribute="centerX" secondItem="plr-0d-lky" secondAttribute="centerX" id="EWx-oO-HgA"/>
-                                                    <constraint firstItem="JUn-RK-Yxw" firstAttribute="centerX" secondItem="plr-0d-lky" secondAttribute="centerX" id="Ua5-Gu-PXo"/>
-                                                    <constraint firstItem="JUn-RK-Yxw" firstAttribute="top" secondItem="nDe-Uv-7vC" secondAttribute="bottom" id="nWO-ZR-E1d"/>
-                                                    <constraint firstItem="aur-hd-chP" firstAttribute="centerX" secondItem="plr-0d-lky" secondAttribute="centerX" id="tyG-dc-AP6"/>
-                                                    <constraint firstItem="aur-hd-chP" firstAttribute="top" secondItem="plr-0d-lky" secondAttribute="top" constant="10" id="xoh-mH-RBo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="c6b-Yo-Iia" secondAttribute="bottom" constant="8" id="FiI-2o-i9o"/>
+                                                    <constraint firstItem="q7j-u6-7RT" firstAttribute="centerX" secondItem="43n-vl-ooq" secondAttribute="centerX" id="glT-1g-djQ"/>
+                                                    <constraint firstItem="c6b-Yo-Iia" firstAttribute="centerX" secondItem="43n-vl-ooq" secondAttribute="centerX" id="m9p-li-JHc"/>
+                                                    <constraint firstItem="eSj-P6-yO3" firstAttribute="top" secondItem="43n-vl-ooq" secondAttribute="top" constant="10" id="mxg-ny-ghM"/>
+                                                    <constraint firstItem="c6b-Yo-Iia" firstAttribute="top" secondItem="q7j-u6-7RT" secondAttribute="bottom" id="wBg-Bm-FQQ"/>
+                                                    <constraint firstItem="eSj-P6-yO3" firstAttribute="centerX" secondItem="43n-vl-ooq" secondAttribute="centerX" id="ycj-gi-YEV"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cV-97-Kqj">
+                                                <rect key="frame" x="262.5" y="0.0" width="111.5" height="149.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mBS-En-IQe">
+                                                        <rect key="frame" x="18.5" y="10.5" width="75" height="73.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="75" id="iLz-Za-NhL"/>
+                                                            <constraint firstAttribute="height" constant="75" id="vnI-lw-ZGZ"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxR-Ds-nWN">
+                                                        <rect key="frame" x="35.5" y="94" width="40.5" height="31.5"/>
+                                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzf-BZ-D8V">
+                                                        <rect key="frame" x="22.5" y="125.5" width="67" height="16"/>
+                                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
+                                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstItem="mBS-En-IQe" firstAttribute="top" secondItem="3cV-97-Kqj" secondAttribute="top" constant="10" id="0Hy-hI-IWc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Vzf-BZ-D8V" secondAttribute="bottom" constant="8" id="8PK-mL-QJ1"/>
+                                                    <constraint firstItem="Vzf-BZ-D8V" firstAttribute="top" secondItem="RxR-Ds-nWN" secondAttribute="bottom" id="bQD-UF-BTp"/>
+                                                    <constraint firstItem="RxR-Ds-nWN" firstAttribute="centerX" secondItem="3cV-97-Kqj" secondAttribute="centerX" id="dsE-NS-obc"/>
+                                                    <constraint firstItem="mBS-En-IQe" firstAttribute="centerX" secondItem="3cV-97-Kqj" secondAttribute="centerX" id="gbP-Gq-DWr"/>
+                                                    <constraint firstItem="Vzf-BZ-D8V" firstAttribute="centerX" secondItem="3cV-97-Kqj" secondAttribute="centerX" id="nVn-fa-7iX"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -356,37 +587,20 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ForfeitAdmin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iC9-ZV-fRF">
-                                <rect key="frame" x="22" y="54" width="127.5" height="26.5"/>
+                                <rect key="frame" x="22" y="62" width="127.5" height="26.5"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCe-e2-kbg">
-                                <rect key="frame" x="355" y="54" width="44" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="U4L-pV-McO"/>
-                                    <constraint firstAttribute="width" constant="44" id="kkq-lW-T8X"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="checkmark.seal" catalog="system" symbolScale="large"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="oKX-tO-JrE"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mHc-Vd-nOI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mHc-Vd-nOI" firstAttribute="trailing" secondItem="rr5-6N-hcW" secondAttribute="trailing" constant="20" id="DLO-UV-iZP"/>
                             <constraint firstItem="rr5-6N-hcW" firstAttribute="top" secondItem="mHc-Vd-nOI" secondAttribute="top" constant="100" id="IyY-iE-DKu"/>
-                            <constraint firstItem="sCe-e2-kbg" firstAttribute="top" secondItem="mHc-Vd-nOI" secondAttribute="top" constant="10" id="Nfo-2U-rtF"/>
                             <constraint firstItem="rr5-6N-hcW" firstAttribute="leading" secondItem="mHc-Vd-nOI" secondAttribute="leading" constant="20" id="Osk-B4-2BU"/>
                             <constraint firstItem="iC9-ZV-fRF" firstAttribute="leading" secondItem="mHc-Vd-nOI" secondAttribute="leading" constant="22" id="YWS-T4-mKN"/>
-                            <constraint firstItem="iC9-ZV-fRF" firstAttribute="top" secondItem="mHc-Vd-nOI" secondAttribute="top" constant="10" id="apf-NM-Vlv"/>
-                            <constraint firstItem="mHc-Vd-nOI" firstAttribute="trailing" secondItem="sCe-e2-kbg" secondAttribute="trailing" constant="15" id="f1A-Uw-z5p"/>
+                            <constraint firstItem="iC9-ZV-fRF" firstAttribute="top" secondItem="mHc-Vd-nOI" secondAttribute="top" constant="18" id="apf-NM-Vlv"/>
                             <constraint firstItem="mHc-Vd-nOI" firstAttribute="bottom" secondItem="rr5-6N-hcW" secondAttribute="bottom" constant="60" id="svP-SP-CWQ"/>
                         </constraints>
                     </view>
@@ -395,6 +609,10 @@
                         <outlet property="totalDeniedCountLabel" destination="IMk-hO-jpu" id="41k-Mi-qxl"/>
                         <outlet property="totalDonatedCountLabel" destination="ov0-Z9-wuP" id="ECl-nf-62m"/>
                         <outlet property="totalForfeitCountLabel" destination="VfK-8P-S7h" id="9vv-ag-FpZ"/>
+                        <outlet property="totalForfeitsThisMonthLabel" destination="tuJ-6H-fAc" id="5YD-SC-zt9"/>
+                        <outlet property="totalForfeitsThisWeekLabel" destination="d1T-SD-KiI" id="KZJ-qa-ha3"/>
+                        <outlet property="totalForfeitsTodayLabel" destination="nDe-Uv-7vC" id="YFE-gF-cNF"/>
+                        <outlet property="totalOnTheLineLabel" destination="q7j-u6-7RT" id="c4b-qb-hXi"/>
                         <outlet property="totalUserCountLabel" destination="ryq-ku-h2X" id="1Lg-Jm-98G"/>
                         <outlet property="totalUsersThatHaveSetAForfeitLabel" destination="eec-2Q-8fk" id="LP7-EE-pqG"/>
                         <outlet property="totalWaitingForApprovalCountLabel" destination="G8E-lz-gTx" id="Vrd-Ox-xP1"/>
@@ -404,6 +622,264 @@
             </objects>
             <point key="canvasLocation" x="-714.49275362318849" y="-116.51785714285714"/>
         </scene>
+        <!--Verified Controller-->
+        <scene sceneID="MVz-ow-i7R">
+            <objects>
+                <viewController id="Xly-cW-x01" customClass="VerifiedController" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UUL-sF-BPa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="10e-zy-qZb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="764"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ayX-q1-kHZ" customClass="VerificationTableViewCell" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ayX-q1-kHZ" id="vdh-YR-k83">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="asH-GP-iGb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="10e-zy-qZb" firstAttribute="top" secondItem="asH-GP-iGb" secondAttribute="top" id="1bl-WE-hzi"/>
+                            <constraint firstItem="asH-GP-iGb" firstAttribute="bottom" secondItem="10e-zy-qZb" secondAttribute="bottom" constant="34" id="P1O-lC-0Dh"/>
+                            <constraint firstItem="10e-zy-qZb" firstAttribute="leading" secondItem="asH-GP-iGb" secondAttribute="leading" id="Xni-Yz-28Q"/>
+                            <constraint firstItem="10e-zy-qZb" firstAttribute="trailing" secondItem="asH-GP-iGb" secondAttribute="trailing" id="g0h-LA-Z2t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="EDc-WO-Z91"/>
+                    <connections>
+                        <outlet property="verifiedTableView" destination="10e-zy-qZb" id="LRL-Dx-MB8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x1x-1Q-4pf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-714" y="577"/>
+        </scene>
+        <!--Forfeits Presentation Controller-->
+        <scene sceneID="Y0s-tJ-UHK">
+            <objects>
+                <viewController storyboardIdentifier="forfeitsPresentationController" id="Lgd-fS-93C" customClass="ForfeitsPresentationController" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WFi-7N-qRs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mkq-8H-XKl">
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="forfeitCell" rowHeight="559" id="DZQ-FV-YvC" customClass="ForfeitCell" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="559"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DZQ-FV-YvC" id="ZDW-Iw-L2G">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="559"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWT-fD-s8G">
+                                                    <rect key="frame" x="306.5" y="11" width="87.5" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6w-zd-I2Z">
+                                                            <rect key="frame" x="10" y="5" width="67.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.39607843139999999" green="0.79215686269999996" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="U6w-zd-I2Z" secondAttribute="trailing" constant="10" id="7h8-F8-vDz"/>
+                                                        <constraint firstItem="U6w-zd-I2Z" firstAttribute="leading" secondItem="xWT-fD-s8G" secondAttribute="leading" constant="10" id="F4W-Ir-vAB"/>
+                                                        <constraint firstAttribute="height" constant="30" id="Rnf-ZQ-upG"/>
+                                                        <constraint firstItem="U6w-zd-I2Z" firstAttribute="centerY" secondItem="xWT-fD-s8G" secondAttribute="centerY" id="dQh-r9-w9N"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jt-6v-Tol">
+                                                    <rect key="frame" x="20" y="17" width="128" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="ydo-9L-65g"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsG-cZ-PNM">
+                                                    <rect key="frame" x="20" y="50" width="30" height="16"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzu-Nq-roc">
+                                                    <rect key="frame" x="65" y="503" width="329" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Someday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzQ-ul-Ejj">
+                                                            <rect key="frame" x="10" y="5" width="303" height="20"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.39607843139999999" green="0.79215686269999996" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="nzQ-ul-Ejj" secondAttribute="bottom" constant="5" id="AwG-co-v5z"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="GLj-II-F10"/>
+                                                        <constraint firstItem="nzQ-ul-Ejj" firstAttribute="top" secondItem="pzu-Nq-roc" secondAttribute="top" constant="5" id="XeS-kT-F6e"/>
+                                                        <constraint firstItem="nzQ-ul-Ejj" firstAttribute="leading" secondItem="pzu-Nq-roc" secondAttribute="leading" constant="10" id="fjx-OX-OjJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nzQ-ul-Ejj" secondAttribute="trailing" constant="10" id="vLI-li-sdN"/>
+                                                        <constraint firstItem="nzQ-ul-Ejj" firstAttribute="centerY" secondItem="pzu-Nq-roc" secondAttribute="centerY" id="wRE-S3-oIS"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vu-DG-fm0">
+                                                    <rect key="frame" x="20" y="503" width="30" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwK-J8-FBy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                            <color key="backgroundColor" red="0.39607843139999999" green="0.79215686269999996" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="0cT-V2-sNS"/>
+                                                        <constraint firstItem="vwK-J8-FBy" firstAttribute="centerX" secondItem="2Vu-DG-fm0" secondAttribute="centerX" id="C5F-NL-XCh"/>
+                                                        <constraint firstItem="vwK-J8-FBy" firstAttribute="centerY" secondItem="2Vu-DG-fm0" secondAttribute="centerY" id="En3-Pw-jje"/>
+                                                        <constraint firstAttribute="height" constant="30" id="di6-py-ZQU"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cHZ-ps-Efe">
+                                                    <rect key="frame" x="20" y="73" width="374" height="400"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="400" id="rcm-bo-DZg"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2Vu-DG-fm0" firstAttribute="leading" secondItem="ZDW-Iw-L2G" secondAttribute="leadingMargin" id="9v6-hQ-KmO"/>
+                                                <constraint firstItem="3jt-6v-Tol" firstAttribute="top" secondItem="ZDW-Iw-L2G" secondAttribute="topMargin" constant="6" id="C0A-2C-ZGu"/>
+                                                <constraint firstItem="3jt-6v-Tol" firstAttribute="leading" secondItem="ZDW-Iw-L2G" secondAttribute="leadingMargin" id="DeE-Mr-5L5"/>
+                                                <constraint firstItem="xWT-fD-s8G" firstAttribute="top" secondItem="ZDW-Iw-L2G" secondAttribute="topMargin" constant="5" id="Hjp-M6-Fg4"/>
+                                                <constraint firstItem="HsG-cZ-PNM" firstAttribute="top" secondItem="3jt-6v-Tol" secondAttribute="bottom" constant="5" id="K0O-yI-MbA"/>
+                                                <constraint firstItem="HsG-cZ-PNM" firstAttribute="leading" secondItem="ZDW-Iw-L2G" secondAttribute="leadingMargin" id="LMG-4K-J6f"/>
+                                                <constraint firstItem="cHZ-ps-Efe" firstAttribute="top" secondItem="HsG-cZ-PNM" secondAttribute="bottom" constant="7" id="O8G-T6-Qak"/>
+                                                <constraint firstItem="2Vu-DG-fm0" firstAttribute="top" secondItem="cHZ-ps-Efe" secondAttribute="bottom" constant="30" id="SBp-bk-pY7"/>
+                                                <constraint firstItem="xWT-fD-s8G" firstAttribute="top" secondItem="ZDW-Iw-L2G" secondAttribute="topMargin" id="TYI-Oh-3si"/>
+                                                <constraint firstItem="pzu-Nq-roc" firstAttribute="top" secondItem="cHZ-ps-Efe" secondAttribute="bottom" constant="30" id="Tum-pM-sxf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pzu-Nq-roc" secondAttribute="bottom" constant="15" id="UJI-Lo-Bki"/>
+                                                <constraint firstAttribute="trailing" secondItem="xWT-fD-s8G" secondAttribute="trailing" constant="20" id="npH-Zg-5eJ"/>
+                                                <constraint firstItem="cHZ-ps-Efe" firstAttribute="centerX" secondItem="ZDW-Iw-L2G" secondAttribute="centerX" id="nyY-uU-NZR"/>
+                                                <constraint firstItem="pzu-Nq-roc" firstAttribute="trailing" secondItem="ZDW-Iw-L2G" secondAttribute="trailingMargin" id="qxo-zd-3eL"/>
+                                                <constraint firstItem="pzu-Nq-roc" firstAttribute="leading" secondItem="2Vu-DG-fm0" secondAttribute="trailing" constant="15" id="xqm-Jb-juW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="vwK-J8-FBy" id="Bbg-Lc-k2N"/>
+                                            <outlet property="descriptionLabel" destination="nzQ-ul-Ejj" id="Yia-uP-lxt"/>
+                                            <outlet property="emailLabel" destination="3jt-6v-Tol" id="zyQ-2b-54P"/>
+                                            <outlet property="howLongAgoSubmittedLabel" destination="U6w-zd-I2Z" id="j88-vH-rj7"/>
+                                            <outlet property="idLabel" destination="HsG-cZ-PNM" id="MKZ-HF-V0C"/>
+                                            <outlet property="imageLabel" destination="cHZ-ps-Efe" id="Y2S-jc-uzo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2D0-45-lmE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mkq-8H-XKl" firstAttribute="top" secondItem="2D0-45-lmE" secondAttribute="top" constant="100" id="1dT-uY-Gbe"/>
+                            <constraint firstItem="mkq-8H-XKl" firstAttribute="bottom" secondItem="2D0-45-lmE" secondAttribute="bottom" id="3jE-UP-dvA"/>
+                            <constraint firstItem="mkq-8H-XKl" firstAttribute="leading" secondItem="2D0-45-lmE" secondAttribute="leading" id="DNN-fm-rVK"/>
+                            <constraint firstItem="mkq-8H-XKl" firstAttribute="trailing" secondItem="2D0-45-lmE" secondAttribute="trailing" id="Dd6-dX-z0a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="forfeitTableView" destination="mkq-8H-XKl" id="Add-jJ-l3X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvS-O6-kDi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.637681159420293" y="576.5625"/>
+        </scene>
+        <!--Users Controller-->
+        <scene sceneID="ewK-Eq-BLR">
+            <objects>
+                <viewController id="TeA-91-aLc" customClass="UsersController" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cN1-jW-2mL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yvv-dz-Mhj">
+                                <rect key="frame" x="20" y="44" width="374" height="764"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" id="YVC-g8-jsH" customClass="UserCell" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YVC-g8-jsH" id="U6b-7F-J9Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fe4-Fa-BQz">
+                                                    <rect key="frame" x="28" y="11.5" width="318" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Fe4-Fa-BQz" secondAttribute="trailing" constant="8" id="1ZI-CA-Shv"/>
+                                                <constraint firstItem="Fe4-Fa-BQz" firstAttribute="leading" secondItem="U6b-7F-J9Z" secondAttribute="leadingMargin" constant="8" id="kYU-fk-I9Z"/>
+                                                <constraint firstItem="Fe4-Fa-BQz" firstAttribute="centerY" secondItem="U6b-7F-J9Z" secondAttribute="centerY" id="nca-et-3b2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="Fe4-Fa-BQz" id="0u1-UP-Rb0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kYe-ik-Nkx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yvv-dz-Mhj" firstAttribute="leading" secondItem="kYe-ik-Nkx" secondAttribute="leading" constant="20" id="QND-PP-7fs"/>
+                            <constraint firstItem="yvv-dz-Mhj" firstAttribute="top" secondItem="kYe-ik-Nkx" secondAttribute="top" id="U7u-Cw-Lck"/>
+                            <constraint firstItem="kYe-ik-Nkx" firstAttribute="bottom" secondItem="yvv-dz-Mhj" secondAttribute="bottom" constant="34" id="YsK-GJ-tqN"/>
+                            <constraint firstItem="kYe-ik-Nkx" firstAttribute="trailing" secondItem="yvv-dz-Mhj" secondAttribute="trailing" constant="20" id="mw2-m8-N2J"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lqa-sI-ubx"/>
+                    <connections>
+                        <outlet property="usersTableView" destination="yvv-dz-Mhj" id="Pa5-nk-S54"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lcY-Rx-7T6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.637681159420293" y="-117.1875"/>
+        </scene>
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -412,25 +888,192 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="700" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vf3-XQ-6VY">
-                                <rect key="frame" x="0.0" y="127" width="414" height="769"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="623" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vf3-XQ-6VY">
+                                <rect key="frame" x="0.0" y="94" width="414" height="802"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="verificationCell" id="qM9-EY-FLk" customClass="VerificationTableViewCell" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="700"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="verificationCell" rowHeight="623" id="qM9-EY-FLk" customClass="VerificationTableViewCell" customModule="ForfeitVerificationV3_2_1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="623"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qM9-EY-FLk" id="U8A-pi-ftY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f1J-uK-1OE">
-                                                    <rect key="frame" x="0.0" y="11" width="414" height="268"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f1J-uK-1OE">
+                                                    <rect key="frame" x="20" y="66" width="374" height="400"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="400" id="5wg-Ga-lzj"/>
+                                                    </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5A-CD-JyK">
+                                                    <rect key="frame" x="306.5" y="16" width="87.5" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qb-dA-f46">
+                                                            <rect key="frame" x="10" y="5" width="67.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.396078431372549" green="0.792156862745098" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Eqs-e2-Ktm"/>
+                                                        <constraint firstItem="3Qb-dA-f46" firstAttribute="centerY" secondItem="y5A-CD-JyK" secondAttribute="centerY" id="cGi-WX-7dx"/>
+                                                        <constraint firstItem="3Qb-dA-f46" firstAttribute="leading" secondItem="y5A-CD-JyK" secondAttribute="leading" constant="10" id="jnR-dK-Jes"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3Qb-dA-f46" secondAttribute="trailing" constant="10" id="qHJ-R7-N6M"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIx-aD-QnA">
+                                                    <rect key="frame" x="20" y="17" width="128" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="7qa-nf-ofl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3f-tV-4kz">
+                                                    <rect key="frame" x="20" y="481" width="374" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfz-fa-KvG">
+                                                            <rect key="frame" x="10" y="5" width="354" height="20"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.39607843139999999" green="0.79215686269999996" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Pfz-fa-KvG" firstAttribute="centerY" secondItem="p3f-tV-4kz" secondAttribute="centerY" id="6RI-rO-Nqv"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="bun-lf-MRx"/>
+                                                        <constraint firstItem="Pfz-fa-KvG" firstAttribute="top" secondItem="p3f-tV-4kz" secondAttribute="top" constant="5" id="d87-cH-kxI"/>
+                                                        <constraint firstItem="Pfz-fa-KvG" firstAttribute="leading" secondItem="p3f-tV-4kz" secondAttribute="leading" constant="10" id="fjW-8Q-oij"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Pfz-fa-KvG" secondAttribute="bottom" constant="5" id="obt-Gp-wZX"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Pfz-fa-KvG" secondAttribute="trailing" constant="10" id="tLd-Hd-w1B"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDZ-0L-zPP">
+                                                    <rect key="frame" x="65" y="526" width="329" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gub-Xm-QxE">
+                                                            <rect key="frame" x="10" y="5" width="309" height="20"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.39607843139999999" green="0.79215686269999996" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Iea-zv-lrY"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gub-Xm-QxE" secondAttribute="trailing" constant="10" id="Q7F-O7-OgT"/>
+                                                        <constraint firstItem="gub-Xm-QxE" firstAttribute="leading" secondItem="BDZ-0L-zPP" secondAttribute="leading" constant="10" id="hqt-qT-6Nd"/>
+                                                        <constraint firstItem="gub-Xm-QxE" firstAttribute="centerY" secondItem="BDZ-0L-zPP" secondAttribute="centerY" id="wEz-UM-yzD"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQy-Np-gbw">
+                                                    <rect key="frame" x="20" y="526" width="30" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8O-Uc-405">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                            <color key="backgroundColor" red="0.39607843139999999" green="0.79215686269999996" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="c8O-Uc-405" firstAttribute="centerX" secondItem="hQy-Np-gbw" secondAttribute="centerX" id="GoS-oS-cQ4"/>
+                                                        <constraint firstAttribute="width" constant="30" id="Uso-GA-mQy"/>
+                                                        <constraint firstItem="c8O-Uc-405" firstAttribute="centerY" secondItem="hQy-Np-gbw" secondAttribute="centerY" id="YQS-ib-djj"/>
+                                                        <constraint firstAttribute="height" constant="30" id="o4B-rp-gob"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlI-kq-hxK">
+                                                    <rect key="frame" x="20" y="50" width="30" height="16"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mji-Bs-Z7d">
+                                                    <rect key="frame" x="65" y="571" width="329" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iac-sb-pPd">
+                                                            <rect key="frame" x="10" y="5" width="309" height="20"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.39607843139999999" green="0.79215686269999996" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Iac-sb-pPd" firstAttribute="centerY" secondItem="Mji-Bs-Z7d" secondAttribute="centerY" id="G7P-7m-QCQ"/>
+                                                        <constraint firstAttribute="height" constant="30" id="eqW-4G-MUf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Iac-sb-pPd" secondAttribute="trailing" constant="10" id="hXh-bD-NfG"/>
+                                                        <constraint firstItem="Iac-sb-pPd" firstAttribute="leading" secondItem="Mji-Bs-Z7d" secondAttribute="leading" constant="10" id="jUa-kS-Lut"/>
+                                                        <constraint firstItem="Iac-sb-pPd" firstAttribute="centerX" secondItem="Mji-Bs-Z7d" secondAttribute="centerX" id="vkN-z7-k7f"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BDZ-0L-zPP" firstAttribute="leading" secondItem="hQy-Np-gbw" secondAttribute="trailing" constant="15" id="0SZ-lh-BDe"/>
+                                                <constraint firstItem="MlI-kq-hxK" firstAttribute="leading" secondItem="U8A-pi-ftY" secondAttribute="leadingMargin" id="3jw-V2-gtE"/>
+                                                <constraint firstItem="f1J-uK-1OE" firstAttribute="top" secondItem="y5A-CD-JyK" secondAttribute="bottom" constant="20" id="5ZP-C2-7lc"/>
+                                                <constraint firstItem="f1J-uK-1OE" firstAttribute="leading" secondItem="U8A-pi-ftY" secondAttribute="leading" constant="20" id="8lj-R8-44a"/>
+                                                <constraint firstItem="p3f-tV-4kz" firstAttribute="top" secondItem="f1J-uK-1OE" secondAttribute="bottom" constant="15" id="CN2-XZ-to8"/>
+                                                <constraint firstItem="p3f-tV-4kz" firstAttribute="leading" secondItem="U8A-pi-ftY" secondAttribute="leadingMargin" id="HRL-pJ-s9y"/>
+                                                <constraint firstItem="Mji-Bs-Z7d" firstAttribute="leading" secondItem="hQy-Np-gbw" secondAttribute="trailing" constant="15" id="N7p-mY-a09"/>
+                                                <constraint firstItem="f1J-uK-1OE" firstAttribute="top" secondItem="MlI-kq-hxK" secondAttribute="bottom" id="RQd-bq-Q2D"/>
+                                                <constraint firstItem="Mji-Bs-Z7d" firstAttribute="top" secondItem="BDZ-0L-zPP" secondAttribute="bottom" constant="15" id="Xe3-Wu-QWZ"/>
+                                                <constraint firstItem="BDZ-0L-zPP" firstAttribute="top" secondItem="p3f-tV-4kz" secondAttribute="bottom" constant="15" id="aJD-xW-YFK"/>
+                                                <constraint firstItem="BDZ-0L-zPP" firstAttribute="trailing" secondItem="U8A-pi-ftY" secondAttribute="trailingMargin" id="bWI-2M-gPV"/>
+                                                <constraint firstItem="y5A-CD-JyK" firstAttribute="top" secondItem="U8A-pi-ftY" secondAttribute="topMargin" id="cue-9O-QBS"/>
+                                                <constraint firstAttribute="trailing" secondItem="f1J-uK-1OE" secondAttribute="trailing" constant="20" id="hhy-qL-kf2"/>
+                                                <constraint firstItem="p3f-tV-4kz" firstAttribute="trailing" secondItem="U8A-pi-ftY" secondAttribute="trailingMargin" id="jWy-o1-Phc"/>
+                                                <constraint firstItem="MlI-kq-hxK" firstAttribute="top" secondItem="UIx-aD-QnA" secondAttribute="bottom" constant="5" id="m0K-DP-ZLq"/>
+                                                <constraint firstItem="hQy-Np-gbw" firstAttribute="top" secondItem="p3f-tV-4kz" secondAttribute="bottom" constant="15" id="o0c-ed-SWc"/>
+                                                <constraint firstItem="hQy-Np-gbw" firstAttribute="leading" secondItem="U8A-pi-ftY" secondAttribute="leadingMargin" id="q03-OZ-99K"/>
+                                                <constraint firstAttribute="trailing" secondItem="y5A-CD-JyK" secondAttribute="trailing" constant="20" id="wXh-pa-vF7"/>
+                                                <constraint firstItem="Mji-Bs-Z7d" firstAttribute="trailing" secondItem="U8A-pi-ftY" secondAttribute="trailingMargin" id="wg5-Dt-Yg6"/>
+                                                <constraint firstItem="y5A-CD-JyK" firstAttribute="top" secondItem="U8A-pi-ftY" secondAttribute="topMargin" constant="5" id="wg7-Hp-AHD"/>
+                                                <constraint firstItem="UIx-aD-QnA" firstAttribute="top" secondItem="U8A-pi-ftY" secondAttribute="topMargin" constant="6" id="wpb-cU-kf6"/>
+                                                <constraint firstItem="UIx-aD-QnA" firstAttribute="leading" secondItem="U8A-pi-ftY" secondAttribute="leadingMargin" id="yuy-nA-Qib"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="amountLabel" destination="c8O-Uc-405" id="3RK-k5-PqV"/>
+                                            <outlet property="deadlineLabel" destination="Iac-sb-pPd" id="vou-JB-cXS"/>
+                                            <outlet property="descriptionLabel" destination="Pfz-fa-KvG" id="RxM-cj-G69"/>
+                                            <outlet property="emailLabel" destination="UIx-aD-QnA" id="hBg-GF-MsE"/>
+                                            <outlet property="howLongAgoSubmittedLabel" destination="3Qb-dA-f46" id="0m9-qI-wau"/>
+                                            <outlet property="idLabel" destination="MlI-kq-hxK" id="ASV-kn-MNk"/>
                                             <outlet property="imageLabel" destination="f1J-uK-1OE" id="zSg-0h-aXU"/>
+                                            <outlet property="timeSubmittedLabel" destination="gub-Xm-QxE" id="MYM-sl-s1S"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -445,15 +1088,6 @@
                                     <segue destination="BfS-Cl-09r" kind="presentation" modalPresentationStyle="fullScreen" id="TAQ-1T-B3s"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfY-MW-lUW">
-                                <rect key="frame" x="20" y="92" width="374" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="l7w-z1-g9e"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NtH-W3-vdz">
                                 <rect key="frame" x="200" y="44" width="46" height="42"/>
                                 <constraints>
@@ -480,23 +1114,19 @@
                             <constraint firstItem="fel-mJ-xTC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="43o-bw-4r4"/>
                             <constraint firstItem="vf3-XQ-6VY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5FR-vY-En1"/>
                             <constraint firstItem="NtH-W3-vdz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FhJ-0g-6Fp"/>
-                            <constraint firstItem="hfY-MW-lUW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KCR-Ni-EjE"/>
                             <constraint firstAttribute="bottom" secondItem="vf3-XQ-6VY" secondAttribute="bottom" id="Mi7-Jw-gQd"/>
                             <constraint firstItem="3Q3-3k-vUz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="Td0-Lb-fGT"/>
                             <constraint firstAttribute="bottom" secondItem="vf3-XQ-6VY" secondAttribute="bottom" id="UKH-2T-Bsy"/>
-                            <constraint firstItem="hfY-MW-lUW" firstAttribute="top" secondItem="fel-mJ-xTC" secondAttribute="bottom" constant="7" id="ZcZ-7z-6cG"/>
                             <constraint firstItem="fel-mJ-xTC" firstAttribute="leading" secondItem="NtH-W3-vdz" secondAttribute="trailing" constant="14" id="aOc-LR-kFV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hfY-MW-lUW" secondAttribute="trailing" constant="20" id="beQ-8Y-Zgs"/>
                             <constraint firstItem="3Q3-3k-vUz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rJf-s4-SSh"/>
                             <constraint firstItem="vf3-XQ-6VY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vZQ-xx-GpE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fel-mJ-xTC" secondAttribute="trailing" constant="20" id="xaj-34-WxT"/>
-                            <constraint firstItem="vf3-XQ-6VY" firstAttribute="top" secondItem="hfY-MW-lUW" secondAttribute="bottom" constant="14" id="yq0-tM-588"/>
+                            <constraint firstItem="vf3-XQ-6VY" firstAttribute="top" secondItem="NtH-W3-vdz" secondAttribute="bottom" constant="8" id="xlO-E4-7Lt"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="0pf-jn-Ebu"/>
                     <connections>
                         <outlet property="myTableView" destination="vf3-XQ-6VY" id="Zua-w1-zVO"/>
-                        <outlet property="statusLabel" destination="hfY-MW-lUW" id="SDt-nH-58Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -600,7 +1230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBz-qU-kAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="-802"/>
+            <point key="canvasLocation" x="306" y="-781"/>
         </scene>
         <!--Stats Controller-->
         <scene sceneID="QYv-rc-6WM">
@@ -714,8 +1344,8 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="chart.bar.doc.horizontal.fill" catalog="system" width="115" height="128"/>
-        <image name="checkmark.seal" catalog="system" width="128" height="128"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="chevron.backward.square.fill" catalog="system" width="128" height="114"/>
         <image name="dollarsign.square" catalog="system" width="128" height="114"/>
@@ -732,6 +1362,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
